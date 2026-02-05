@@ -2,20 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  /* ======= TYPOGRAPHY */
+  .h1 {
+    @apply text-[34px] leading-[42px] font-bold;
   }
-}
+  .h2 {
+    @apply text-[24px] leading-[36px] font-bold;
+  }
+  .h3 {
+    @apply text-[20px] leading-[28px] font-semibold;
+  }
+  .h4 {
+    @apply text-[18px] leading-[20px] font-medium;
+  }
+  .h5 {
+    @apply text-[16px] leading-[24px] font-semibold;
+  }
+  .subtitle-1 {
+    @apply text-[16px] leading-[24px] font-medium;
+  }
+  .subtitle-2 {
+    @apply text-[14px] leading-[20px] font-semibold;
+  }
+  .body-1 {
+    @apply text-[16px] leading-[24px] font-normal;
+  }
+  .body-2 {
+    @apply text-[14px] leading-[20px] font-normal;
+  }
+  .button {
+    @apply text-[14px] leading-[20px] font-medium;
+  }
+  .caption {
+    @apply text-[12px] leading-[16px] font-normal;
+  }
+  .overline {
+    @apply text-[10px] leading-[14px] font-normal;
+  }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  /* ==== HELPER CLASSES*/
+  .container {
+    @apply max-auto max-w-7xl px-5;
+  }
+  .primary-btn {
+    @apply bg-brand hover:bg-brand-100 transition-all rounded-full button !important;
+  }
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  /* ==== SHADCN OVERRIDES */
+  .shad-no-focus {
+    @apply outline-none ring-offset-transparent focus:ring-transparent focus:ring-offset-0 focus-visible:outline-none;
+  }
+  .shad-input {
+    @apply border-none shadow-none p-0 shad-no-focus placeholder:text-light-200 body-2 !important;
+  }
+
+  /* Sort */
+  .sort-select {
+    @apply shad-no-focus h-11 w-full rounded-[8px] border-transparent bg-write !shadow-sm sm:w-[210px] !important;
+  }
+  .sort-select-content {
+    @apply !shadow-drop-3 !important;
+  }
+  .shad-form-item {
+    @apply flex h-[78px] flex-col justify-center rounded-xl border border-light-300 px-4 shadow-drop-1;
+  }
+
+  /* Thumbnail */
+  .thumbnail {
+    @apply flex-center size-[50px] min-w-[50px] overflow-hidden rounded-full bg-brand/10;
+  }
+  .thumbnail-image {
+    @apply size-full object-cover object-center !important;
+  }
 }
